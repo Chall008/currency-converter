@@ -19,7 +19,7 @@ export function App() {
       <header>
         <h1>Currency Calculator</h1>
       </header>
-      {/* <section>
+      <section>
         <ul value={currentBaseCurrency}>
           {Object.entries(currency.rates).map(
             ([currencyCode, currencyValues]) => {
@@ -41,8 +41,8 @@ export function App() {
             onChange={(event) => setAmount(event.target.value)}
           ></input>
         </div>
-      </footer> */}
-      <section>
+      </footer>
+      {/* <section>
         <select
           value={currentBaseCurrency}
           onChange={(event) => setCurrentBaseCurrency(event.target.value)}
@@ -70,8 +70,8 @@ export function App() {
             )
           })}
         </select>
-        <input type="readonly" value=""></input>
-      </section>
+        <input type="readonly" ></input>
+      </section> */}
     </div>
   )
 }
