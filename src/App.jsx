@@ -3,9 +3,9 @@ import axios from 'axios'
 
 export function App() {
   const [currency, setCurrency] = useState({ rates: [] })
-  const [currentBaseCurrency, setCurrentBaseCurrency] = useState('')
-  const [firsAmount, setFirstAmount] = useState(0)
-  const [secondaryCurrencyBase, setSecondaryCurrencyBase] = useState('')
+  const [currentBaseCurrency, setCurrentBaseCurrency] = useState('USD')
+  const [amount, setAmount] = useState(0)
+  const [secondaryCurrencyBase, setSecondaryCurrencyBase] = useState('GBR')
 
   useEffect(async () => {
     const response = await axios.get(
@@ -19,6 +19,29 @@ export function App() {
       <header>
         <h1>Currency Calculator</h1>
       </header>
+      {/* <section>
+        <ul value={currentBaseCurrency}>
+          {Object.entries(currency.rates).map(
+            ([currencyCode, currencyValues]) => {
+              return (
+                <li key={currencyCode}>
+                  {currencyCode} : {(currencyValues * amount).toFixed(2)}
+                </li>
+              )
+            }
+          )}
+        </ul>
+      </section>
+      <footer>
+        <div>
+          USD:
+          <input
+            value={amount}
+            type="number"
+            onChange={(event) => setAmount(event.target.value)}
+          ></input>
+        </div>
+      </footer> */}
       <section>
         <select
           value={currentBaseCurrency}
@@ -26,19 +49,14 @@ export function App() {
         >
           {Object.entries(currency.rates).map(
             ([currencyCode, currencyValues]) => {
-              return (
-                <option key={currencyCode} value={currencyCode}>
-                  {currencyCode}
-                </option>
-              )
+              return <option key={currencyCode}>{currencyCode}</option>
             }
           )}
         </select>
-
         <input
           type="number"
-          onChange={(event) => setFirstAmount(event.target.value)}
-          value={firsAmount}
+          onChange={(event) => setAmount(event.target.value)}
+          value={amount}
         ></input>
         <select
           value={secondaryCurrencyBase}
